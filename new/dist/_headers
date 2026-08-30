@@ -1,8 +1,0 @@
-# Cloudflare Pages 自定义响应头
-# 静态资源长缓存(带内容hash的JS/CSS可长期缓存)
-/assets/*
-  Cache-Control: public, max-age=31536000, immutable
-
-# 入口 HTML 不缓存,保证更新即时生效
-/index.html
-  Cache-Control: no-cache
