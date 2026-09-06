@@ -1,0 +1,363 @@
+/* BatchRefiner AI Agent 面板样式（与全局米色 UI 统一） */
+#ai2-agent-root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99998;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* 右侧中间：圆形机器人入口（扁平风机器人脸） */
+#ai2-agent-fab {
+  pointer-events: auto;
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(17, 24, 39, 0.92);
+  color: #fff;
+  box-shadow: 0 12px 34px rgba(15, 23, 42, 0.28);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+#ai2-agent-fab svg {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+
+#ai2-agent-fab:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* 右侧滑出面板 */
+#ai2-agent-panel {
+  pointer-events: auto;
+  position: fixed;
+  right: 18px;
+  top: 70px;
+  bottom: 24px;
+  width: 400px;
+  max-width: calc(100vw - 36px);
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  border-radius: 22px;
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateX(460px);
+  transition: transform 0.22s ease;
+}
+
+#ai2-agent-panel.is-open {
+  transform: translateX(0);
+}
+
+.ai2-agent-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.ai2-agent-head b {
+  display: block;
+  font-size: 15px;
+  color: #2f2a25;
+}
+
+.ai2-agent-head span {
+  font-size: 11px;
+  color: #a89a88;
+}
+
+.ai2-agent-head-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.ai2-agent-mini {
+  border: none;
+  background: #f3ece3;
+  color: #4b443c;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+#ai2-agent-msgs {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ai2-agent-empty {
+  font-size: 12px;
+  color: #a89a88;
+  text-align: center;
+  padding: 24px 12px;
+  line-height: 1.7;
+}
+
+.ai2-agent-msg {
+  display: flex;
+}
+
+.ai2-agent-msg.user {
+  justify-content: flex-end;
+}
+
+.ai2-agent-bubble {
+  max-width: 84%;
+  padding: 8px 11px;
+  border-radius: 14px;
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.ai2-agent-msg.user .ai2-agent-bubble {
+  background: #d76546;
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.ai2-agent-msg.assistant .ai2-agent-bubble {
+  background: #fff;
+  border: 1px solid #eee2d7;
+  color: #3d372f;
+  border-bottom-left-radius: 4px;
+}
+
+.ai2-agent-msg.thinking .ai2-agent-bubble,
+.ai2-agent-thinking {
+  color: #a89a88;
+}
+
+.ai2-agent-thinking {
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.ai2-agent-thinking summary {
+  cursor: pointer;
+  color: #a89a88;
+  user-select: none;
+}
+
+.ai2-agent-thinking-body {
+  margin-top: 5px;
+  padding-left: 10px;
+  border-left: 2px solid #fff0e5;
+}
+
+.ai2-agent-inputwrap {
+  margin: 10px;
+  background: #fff;
+  border: 1px solid #eee2d7;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(60, 44, 30, 0.08);
+  padding: 10px;
+}
+
+#ai2-agent-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  padding: 6px 4px;
+  font-size: 12px;
+  font-family: inherit;
+  color: #3d372f;
+  resize: none;
+  outline: none;
+}
+
+#ai2-agent-input:focus {
+  outline: none;
+}
+
+.ai2-agent-toolbar {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.ai2-agent-pill {
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff;
+  border: 1px solid #f0e9e0;
+  border-radius: 999px;
+  height: 30px;
+  padding: 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #534b44;
+  cursor: pointer;
+}
+
+.ai2-agent-pill-label {
+  color: #a89a88;
+  flex-shrink: 0;
+}
+
+.ai2-agent-pill-val {
+  color: #3d372f;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ai2-agent-pill-arrow {
+  color: #a89a88;
+  font-size: 10px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.ai2-agent-dd {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: max-content;
+  min-width: 100%;
+  max-width: 200px;
+  max-height: 220px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #eee2d7;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(31, 41, 55, 0.18);
+  padding: 4px;
+  z-index: 6;
+}
+
+.ai2-dd-item {
+  display: block;
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: #3d372f;
+  padding: 7px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ai2-dd-item:hover {
+  background: #f6f1ea;
+}
+
+.ai2-dd-item.on {
+  background: #efe7db;
+  color: #3d372f;
+}
+
+#ai2-agent-send {
+  flex: 0 0 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: #2f2c29;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#ai2-agent-send:disabled {
+  opacity: 0.5;
+}
+
+/* Match node controls: warm peach outline, larger hit targets, upward menus. */
+.ai2-agent-toolbar {
+  gap: 8px;
+}
+
+.ai2-agent-pill {
+  min-height: 44px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #eee5de;
+  background: #fff;
+  color: #554b44;
+  font-size: 12px;
+  transition: background .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease;
+}
+
+.ai2-agent-pill:hover,
+.ai2-agent-pill:has(.ai2-agent-dd) {
+  background: #fff;
+  border-color: #d67642;
+  color: #8c4b2a;
+  box-shadow: inset 0 0 0 3px #fff0e5;
+}
+
+.ai2-agent-pill:has(.ai2-agent-dd) .ai2-agent-pill-label,
+.ai2-agent-pill:has(.ai2-agent-dd) .ai2-agent-pill-val,
+.ai2-agent-pill:has(.ai2-agent-dd) .ai2-agent-pill-arrow {
+  color: #8c4b2a;
+}
+
+.ai2-agent-dd {
+  bottom: calc(100% + 10px);
+  padding: 8px;
+  border: 1px solid #eadbd0;
+  border-radius: 18px;
+  box-shadow: 0 18px 42px rgba(87, 58, 38, .18);
+}
+
+.ai2-dd-item {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.ai2-dd-item:hover,
+.ai2-dd-item.on {
+  background: #fff;
+  border-color: #d67642;
+  color: #8c4b2a;
+  box-shadow: inset 0 0 0 2px #fff0e5;
+}
+
+#ai2-agent-send {
+  flex-basis: 44px;
+  height: 44px;
+}
